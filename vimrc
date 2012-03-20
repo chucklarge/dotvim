@@ -39,9 +39,9 @@ set tags=tags;/
 " Theme/Colors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set t_Co=256
-set background=dark " we are using a dark background
+set background=dark
 syntax on " syntax highlighting on
-" colorscheme metacosm " my theme
+colorscheme ron " default dark
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Files/Backups
