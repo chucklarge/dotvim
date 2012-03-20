@@ -73,6 +73,7 @@ set noerrorbells " don't make noise
 " make the splitters between windows be blank
 set fillchars=vert:\ ,stl:\ ,stlnc:\
 "set nofoldenable
+set switchbuf=useopen
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Visual Cues
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
