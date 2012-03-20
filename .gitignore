@@ -1,0 +1,6 @@
+tmp/
+tags
+*~
+*.swp
+.VimballRecord
+.netrwhist
