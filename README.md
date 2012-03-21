@@ -18,4 +18,5 @@
     git submodule add git://github.com/XXXX/YYYYY.git bundle/YYYYY
     
 ###Upgrade all plugins###
+    cd ~/.vim
     git submodule foreach git pull origin master
