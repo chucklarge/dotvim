@@ -1,6 +1,6 @@
 ###Inspiration###
-http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen
-https://github.com/DeMarko/dotvim
+* http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen
+* https://github.com/DeMarko/dotvim
 
 ###Installation###
     git clone git://github.com/chucklarge/dotvim.git ~/.vim
