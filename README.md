@@ -11,9 +11,11 @@
 
 ###Fetch submodules###
     cd ~/.vim
-    git submodule init
-    git submodule update
+    submodule update --init
 
 ###Add a new plugin###
     cd ~/.vim
     git submodule add git://github.com/XXXX/YYYYY.git bundle/YYYYY
+    
+###Upgrade all plugins###
+    git submodule foreach git pull origin master
