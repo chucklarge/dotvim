@@ -2,10 +2,6 @@ runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-let g:NERDTreeDirArrows=1
-
-set makeprg=g++\ -o\ %<\ %
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Stuff I have decided I don't like
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -37,6 +33,11 @@ filetype plugin on " load filetype plugins
 set viminfo+=! " make sure it can save viminfo
 "set isk+=_,$,@,%,#,- " none of these should be word dividers, so make them not be
 set tags=tags;/
+
+set digraph
+scriptencoding utf-8
+set encoding=utf-8
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme/Colors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
