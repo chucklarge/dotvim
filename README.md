@@ -11,7 +11,7 @@
 
 ###Fetch submodules###
     cd ~/.vim
-    submodule update --init
+    git submodule update --init
 
 ###Add a new plugin###
     cd ~/.vim
