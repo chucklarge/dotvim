@@ -34,7 +34,7 @@ set viminfo+=! " make sure it can save viminfo
 "set isk+=_,$,@,%,#,- " none of these should be word dividers, so make them not be
 set tags=tags;/
 
-set digraph
+"set digraph
 scriptencoding utf-8
 set encoding=utf-8
 
@@ -42,9 +42,11 @@ set encoding=utf-8
 " Theme/Colors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set t_Co=256
-set background=dark
+"set background=dark
 syntax on " syntax highlighting on
 colorscheme ron " default dark
+"colorscheme molokai
+"let g:molokai_original=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Files/Backups
@@ -62,7 +64,7 @@ set noswapfile
 set lsp=0 " space it out a little more (easier to read)
 set wildmenu " turn on wild menu
 set ruler " Always show current positions along the bottom
-set cmdheight=2 " the command bar is 2 high
+set cmdheight=1 " the command bar is 2 high
 set number " turn on line numbers
 set lz " do not redraw while running macros (much faster) (LazyRedraw)
 set hid " you can change buffer without saving
