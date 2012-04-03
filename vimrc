@@ -14,7 +14,7 @@ call pathogen#helptags()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remap leader to comma
 let mapleader = ","
-"  serach stuff
+"  search stuff
 set nocompatible " get out of horrible vi-compatible mode
 set ignorecase
 set smartcase
@@ -176,8 +176,6 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 autocmd BufWritePre * :%s/\s\+$//e
 
-set pastetoggle=<F2>
-"set paste  "interfers with snipmate
 
 " Retab and Format the File with Spaces
 nnoremap <leader>T :set expandtab<cr>:retab!<cr>
@@ -185,7 +183,14 @@ nnoremap <leader>T :set expandtab<cr>:retab!<cr>
 " cd into the dir that the file is in
 autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
+
+
+set pastetoggle=<F2>
+"set paste  "interfers with snipmate
 map <F3> :call ToggleMouse()<CR>
+map <F4> :set list!<CR>
+map <F5> :setlocal spell! spelllang=en_us<CR>
+
 function! ToggleMouse()
 if &mouse == 'a'
     set mouse=
@@ -197,8 +202,6 @@ else
     echo "Mouse usage enabled"
     endif
     endfunction
-
-map <F4> :set list!<CR>
 
 if has("autocmd")
   " make these files act like php
