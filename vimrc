@@ -183,7 +183,8 @@ nnoremap <leader>T :set expandtab<cr>:retab!<cr>
 " cd into the dir that the file is in
 autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
-
+" diff current file and saved file
+command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 
 set pastetoggle=<F2>
 "set paste  "interfers with snipmate
