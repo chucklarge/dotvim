@@ -217,8 +217,8 @@ endif
 " Etsy specfic stuff
 
 " set PHP coding standard and call on writing php files
-let Vimphpcs_Standard='/home/cclark/development/CodeSniffer/staging-ruleset.xml'
-autocmd BufWritePost *.php silent! :CodeSniff
+"let Vimphpcs_Standard='/home/cclark/development/CodeSniffer/staging-ruleset.xml'
+"autocmd BufWritePost *.php silent! :CodeSniff
 
 function! Github(...)
 python << EOF
