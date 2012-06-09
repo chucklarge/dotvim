@@ -214,6 +214,7 @@ if has("autocmd")
   augroup END
 endif
 
+" add any machine specific configs to .vimrc.local
 if filereadable(glob("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
