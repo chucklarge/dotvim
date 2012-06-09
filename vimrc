@@ -216,6 +216,10 @@ endif
 
 " Etsy specfic stuff
 
+if filereadable(glob("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
+
 " set PHP coding standard and call on writing php files
 "let Vimphpcs_Standard='/home/cclark/development/CodeSniffer/staging-ruleset.xml'
 "autocmd BufWritePost *.php silent! :CodeSniff
