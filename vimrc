@@ -132,7 +132,6 @@ noremap <C-l> <C-w>l
 noremap H ^
 noremap L $
 
-
 " automatically reload vimrc when it's saved
 au BufWritePost .vimrc so ~/.vimrc
 nnoremap <leader>ev :tabedit $MYVIMRC<cr> " Easily Edit VIMRC
@@ -148,7 +147,6 @@ inoremap <up> <nop>
 " +/- resizes window
 nnoremap <silent> + :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> - :exe "resize " . (winheight(0) * 2/3)<CR>
-
 
 cmap w!! %!sudo tee > /dev/null % " Force Saving Files that Require Root Permission
 
@@ -175,7 +173,6 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 autocmd BufWritePre * :%s/\s\+$//e
-
 
 " Retab and Format the File with Spaces
 nnoremap <leader>T :set expandtab<cr>:retab!<cr>
@@ -213,6 +210,10 @@ if has("autocmd")
     autocmd BufRead,BufNewFile *.tpl set filetype=php
   augroup END
 endif
+
+
+autocmd FileType python set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType ruby set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab
 
 " add any machine specific configs to .vimrc.local
 if filereadable(glob("~/.vimrc.local"))
