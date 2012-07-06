@@ -138,11 +138,11 @@ nnoremap <leader>ev :tabedit $MYVIMRC<cr> " Easily Edit VIMRC
 nnoremap <leader>sv :so $MYVIMRC<cr>      " Easily Source VIMRC
 
 " dont be lazy
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-inoremap <up> <nop>
+"nnoremap <up> <nop>
+"nnoremap <down> <nop>
+"nnoremap <left> <nop>
+"nnoremap <right> <nop>
+"nnoremap <up> <nop>
 
 " +/- resizes window
 nnoremap <silent> + :exe "resize " . (winheight(0) * 3/2)<CR>
