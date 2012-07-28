@@ -211,9 +211,12 @@ if has("autocmd")
   augroup END
 endif
 
-
 autocmd FileType python set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType ruby set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab
+
+
+" NERDTree always show invisible files
+let NERDTreeShowHidden=1
 
 " add any machine specific configs to .vimrc.local
 if filereadable(glob("~/.vimrc.local"))
