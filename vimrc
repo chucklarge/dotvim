@@ -151,6 +151,7 @@ nnoremap <silent> - :exe "resize " . (winheight(0) * 2/3)<CR>
 cmap w!! %!sudo tee > /dev/null % " Force Saving Files that Require Root Permission
 
 command W w
+command Wq wq
 command Q q
 command E NERDTree
 
@@ -217,6 +218,8 @@ autocmd FileType ruby set tabstop=2|set softtabstop=2|set shiftwidth=2|set expan
 
 " NERDTree always show invisible files
 let NERDTreeShowHidden=1
+" close on open
+let NERDTreeQuitOnOpen=1
 
 " add any machine specific configs to .vimrc.local
 if filereadable(glob("~/.vimrc.local"))
