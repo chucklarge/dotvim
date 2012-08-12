@@ -150,9 +150,12 @@ nnoremap <silent> - :exe "resize " . (winheight(0) * 2/3)<CR>
 
 cmap w!! %!sudo tee > /dev/null % " Force Saving Files that Require Root Permission
 
-command W w
-command Wq wq
-command Q q
+" Stupid shift key fixes
+cmap W w
+cmap Q q
+cmap Wq wq
+cmap WQ wq
+cmap Tabe tabe
 command E NERDTree
 
 nnoremap / /\v
@@ -271,7 +274,6 @@ function! WildignoreFromGitignore()
 endfunction
 nnoremap <LEADER>cti :call WildignoreFromGitignore()<cr>
 nnoremap <LEADER>cwi :set wildignore=''<cr>:echo 'Wildignore cleared'<cr>
-
 
 
 " add any machine specific configs to .vimrc.local
