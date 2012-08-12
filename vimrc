@@ -151,11 +151,11 @@ nnoremap <silent> - :exe "resize " . (winheight(0) * 2/3)<CR>
 cmap w!! %!sudo tee > /dev/null % " Force Saving Files that Require Root Permission
 
 " Stupid shift key fixes
-cmap W w
-cmap Q q
-cmap Wq wq
-cmap WQ wq
-cmap Tabe tabe
+command W w
+command Q q
+command Wq wq
+command WQ wq
+command Tabe tabe
 command E NERDTree
 
 nnoremap / /\v
