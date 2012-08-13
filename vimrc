@@ -276,8 +276,15 @@ nnoremap <LEADER>cti :call WildignoreFromGitignore()<cr>
 nnoremap <LEADER>cwi :set wildignore=''<cr>:echo 'Wildignore cleared'<cr>
 
 
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_auto_loc_list=1
+let g:syntastic_loc_list_height=5
+
+
 " add any machine specific configs to .vimrc.local
 if filereadable(glob("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
-
