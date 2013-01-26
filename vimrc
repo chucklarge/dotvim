@@ -188,7 +188,7 @@ autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 
 set pastetoggle=<F2>
-"set paste  "interfers with snipmate
+set paste  "interfers with snipmate
 map <F3> :call ToggleMouse()<CR>
 map <F4> :set list!<CR>
 map <F5> :setlocal spell! spelllang=en_us<CR>
@@ -217,7 +217,6 @@ endif
 
 autocmd FileType python set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType ruby set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab
-
 
 " NERDTree always show invisible files
 let NERDTreeShowHidden=1
@@ -304,9 +303,6 @@ function! LineBreakAt(bang, ...) range
   execute a:firstline . ',' . a:lastline . 's/'. find . '/' . repl . '/ge'
   let @/ = save_search
 endfunction
-
-
-
 
 " add any machine specific configs to .vimrc.local
 if filereadable(glob("~/.vimrc.local"))
