@@ -212,6 +212,7 @@ if has("autocmd")
     autocmd BufRead,BufNewFile *.install set filetype=php
     autocmd BufRead,BufNewFile *.info set filetype=php
     autocmd BufRead,BufNewFile *.tpl set filetype=php
+    autocmd BufRead,BufNewFile *.scala set filetype=scala
   augroup END
 endif
 
