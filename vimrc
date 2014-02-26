@@ -305,7 +305,12 @@ function! LineBreakAt(bang, ...) range
   let @/ = save_search
 endfunction
 
+let g:fugitive_github_domains = ['github.com','github.etsycorp.com']
+
+
 " add any machine specific configs to .vimrc.local
 if filereadable(glob("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
+
+
