@@ -22,6 +22,7 @@ set gdefault
 set incsearch
 set showmatch
 set hlsearch
+set virtualedit=block
 nnoremap <leader>/ :nohls<cr>
 
 filetype on " detect the type of file
