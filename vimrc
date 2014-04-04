@@ -219,6 +219,7 @@ endif
 
 autocmd FileType python set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType ruby set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab
+autocmd Filetype scala setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 " NERDTree always show invisible files
 let NERDTreeShowHidden=1
