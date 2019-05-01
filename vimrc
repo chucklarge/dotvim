@@ -1,128 +1,90 @@
-runtime bundle/pathogen/autoload/pathogen.vim
-call pathogen#incubate()
-call pathogen#helptags()
+set nocompatible
+filetype off
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Stuff I have decided I don't like
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"set list " turns out, I don't like listchars -- show chars on end of line, whitespace, etc
-"autocmd GUIEnter * :simalt ~x -- having it auto maximize the screen is annoying
-"autocmd BufEnter * :lcd %:p:h -- switch to current dir (breaks some scripts)
+Plugin 'gmarik/vundle'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'ChrisYip/Better-CSS-Syntax-for-Vim'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'fatih/vim-go'
+"Plugin 'kien/ctrlp.vim'
+"Plugin 'ervandew/supertab'
+"Plugin 'scrooloose/vim-space'
+"Plugin 'pangloss/vim-javascript'
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" General
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remap leader to comma
-let mapleader = ","
-"  search stuff
-set nocompatible " get out of horrible vi-compatible mode
-set ignorecase
-set smartcase
-set gdefault
-set incsearch
-set showmatch
-set hlsearch
-set virtualedit=block
-nnoremap <leader>/ :nohls<cr>
+call vundle#end()            " required
+filetype plugin indent on
+"run :PluginInstall
 
-filetype on " detect the type of file
-set history=1000 " How many lines of history to remember
-set cf " enable error files and error jumping
-set clipboard+=unnamed " turns out I do like is sharing windows clipboard
-set ffs=unix,dos,mac " support all three, in this order
-filetype plugin on " load filetype plugins
-set viminfo+=! " make sure it can save viminfo
-"set isk+=_,$,@,%,#,- " none of these should be word dividers, so make them not be
-set tags=tags;/
 
-"set digraph
+""""""""""""""
+" UI
+""""""""""""""
+set t_Co=256
 scriptencoding utf-8
 set encoding=utf-8
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Theme/Colors
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set t_Co=256
-"set background=dark
 syntax on " syntax highlighting on
 colorscheme ron " default dark
-"colorscheme molokai
-"let g:molokai_original=1
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Files/Backups
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nobackup
-set noswapfile
-" set backup " make backup file
-" set backupdir=$VIM\vimfiles\backup " where to put backup file
-" set directory=$VIM\vimfiles\temp " directory is the directory for temp file
-" set makeef=error.err " When using make, where should it dump the file
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vim UI
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set lsp=0 " space it out a little more (easier to read)
-set wildmenu " turn on wild menu
 set ruler " Always show current positions along the bottom
 set cmdheight=1 " the command bar is 2 high
 set number " turn on line numbers
-set lz " do not redraw while running macros (much faster) (LazyRedraw)
-set hid " you can change buffer without saving
-set backspace=2 " make backspace work normal
-set whichwrap+=<,>,h,l  " backspace and cursor keys wrap to
-if has("mouse")
-    set mouse=a " use mouse everywhere
-endif
-set shortmess=atI " shortens messages to avoid 'press a key' prompt
-set report=0 " tell us when anything is changed via :...
-set noerrorbells " don't make noise
-" make the splitters between windows be blank
-set fillchars=vert:\ ,stl:\ ,stlnc:\
-"set nofoldenable
-set switchbuf=useopen
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Visual Cues
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set showmatch " show matching brackets
-set mat=5 " how many tenths of a second to blink matching brackets for
-"set nohlsearch " do not highlight searched for phrases
-set incsearch " BUT do highlight as you type you search phrase
-set listchars=tab:\|\ ,trail:.,extends:>,precedes:<,eol:$ " what to show when I hit :set list
-"set list
-"set lines=60 " 80 lines tall
-"set columns=160 " 140 cols wide
-set so=10 " Keep 10 lines (top/bottom) for scope
-set novisualbell " don't blink
-set noerrorbells " no noises
+
 set statusline=%F%m%r%h%w\ [buffer=%n]\ [type=%Y]\ [ascii=\%03.3b]\ [hex=\%02.2B]\ [pos=%04l,%04v][%p%%]\ [len=%L]
 set laststatus=2 " always show the status line
+set fillchars=vert:\ ,stl:\ ,stlnc:\
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Text Formatting/Layout
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"set fo=tcrqn " See Help (complex)
-"set ai " autoindent
-"set si " smartindent
-set cindent " do c-style indenting
-set tabstop=4 " tab spacing (settings below are just to unify it)
-set softtabstop=4 " unify
-set shiftwidth=4 " unify
-"set noexpandtab " real tabs please!
-set expandtab
-set nowrap " do not wrap lines
-"set smarttab " use tabs at the start of a line, spaces elsewhere
-
-set textwidth=120
+set textwidth=121
 set colorcolumn=120
 hi ColorColumn ctermbg=233 guibg=#121212
 
 set cul                                           " highlight current line
 hi CursorLine term=none cterm=none ctermbg=23 "23      " adjust color
 
-" make ; behave as :
-nnoremap ; :
-vnoremap ; :
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+autocmd BufWritePre * :%s/\s\+$//e
+
+""""""""""""""
+"General
+""""""""""""""
+let mapleader = ","
+set nocompatible " get out of horrible vi-compatible mode
+set ignorecase
+set showmatch
+set hlsearch
+set incsearch " BUT do highlight as you type you search phrase
+set listchars=tab:\|\ ,trail:.,extends:>,precedes:<,eol:$ " what to show when I hit :set list
+
+set novisualbell " don't blink
+set noerrorbells " no noises
+
+set nobackup
+set noswapfile
+
+set backspace=2 " make backspace work normal
+
+if has("mouse")
+    set mouse=a " use mouse everywhere
+    set ttymouse=xterm2
+endif
+
+set ve=all
+
+set showmatch " show matching brackets
+set mat=5 " how many tenths of a second to blink matching brackets for
+
+set cindent " do c-style indenting
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+set nowrap " do not wrap lines
 
 " Easy split navigation
 noremap <C-j> <C-w>j
@@ -133,24 +95,6 @@ noremap <C-l> <C-w>l
 noremap H ^
 noremap L $
 
-" automatically reload vimrc when it's saved
-au BufWritePost .vimrc so ~/.vimrc
-nnoremap <leader>ev :tabedit $MYVIMRC<cr> " Easily Edit VIMRC
-nnoremap <leader>sv :so $MYVIMRC<cr>      " Easily Source VIMRC
-
-" dont be lazy
-"nnoremap <up> <nop>
-"nnoremap <down> <nop>
-"nnoremap <left> <nop>
-"nnoremap <right> <nop>
-"nnoremap <up> <nop>
-
-" +/- resizes window
-nnoremap <silent> + :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> - :exe "resize " . (winheight(0) * 2/3)<CR>
-
-cmap w!! %!sudo tee > /dev/null % " Force Saving Files that Require Root Permission
-
 " Stupid shift key fixes
 command W w
 command Q q
@@ -159,34 +103,10 @@ command WQ wq
 command Tabe tabe
 command E NERDTree
 
-nnoremap / /\v
-vnoremap / /\v
-
 " tab key match bracket pairs.
 nnoremap <tab> %
 vnoremap <tab> %
 
-" save on losing focus
-au FocusLost * :wa
-
-inoremap jj <ESC>
-
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
-autocmd BufWritePre * :%s/\s\+$//e
-
-" Retab and Format the File with Spaces
-nnoremap <leader>T :set expandtab<cr>:retab!<cr>
-
-" cd into the dir that the file is in
-autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
-
-" diff current file and saved file
-command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 
 set pastetoggle=<F2>
 set paste  "interfers with snipmate
@@ -213,106 +133,26 @@ if has("autocmd")
     autocmd BufRead,BufNewFile *.install set filetype=php
     autocmd BufRead,BufNewFile *.info set filetype=php
     autocmd BufRead,BufNewFile *.tpl set filetype=php
+    autocmd BufRead,BufNewFile *.mustache set filetype=html
     autocmd BufRead,BufNewFile *.scala set filetype=scala
   augroup END
 endif
 
 autocmd FileType python set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType ruby set tabstop=2|set softtabstop=2|set shiftwidth=2|set expandtab
-autocmd Filetype scala setlocal tabstop=2 softtabstop=2 shiftwidth=2
 
 " NERDTree always show invisible files
 let NERDTreeShowHidden=1
 " close on open
 let NERDTreeQuitOnOpen=1
 
-if &term =~ "xterm" || &term =~ "screen"
-  let g:CommandTCancelMap     = ['<ESC>', '<C-c>']
-  let g:CommandTSelectNextMap = ['<C-n>', '<C-j>', '<ESC>OB']
-  let g:CommandTSelectPrevMap = ['<C-p>', '<C-k>', '<ESC>OA']
-endif
-
-function! Git_Repo_Cdup() " Get the relative path to repo root
-    "Ask git for the root of the git repo (as a relative '../../' path)
-    let git_top = system('git rev-parse --show-cdup')
-    let git_fail = 'fatal: Not a git repository'
-    if strpart(git_top, 0, strlen(git_fail)) == git_fail
-        " Above line says we are not in git repo. Ugly. Better version?
-        return ''
-    else
-        " Return the cdup path to the root. If already in root,
-        " path will be empty, so add './'
-        return './' . git_top
-    endif
-endfunction
-
-function! CD_Git_Root()
-    execute 'cd '.Git_Repo_Cdup()
-    let curdir = getcwd()
-    echo 'CWD now set to: '.curdir
-endfunction
-nnoremap <LEADER>gr :call CD_Git_Root()<cr>
-
-" Define the wildignore from gitignore. Primarily for CommandT
-function! WildignoreFromGitignore()
-    silent call CD_Git_Root()
-    let gitignore = '.gitignore'
-    if filereadable(gitignore)
-        let igstring = ''
-        for oline in readfile(gitignore)
-            let line = substitute(oline, '\s|\n|\r', '', "g")
-            if line =~ '^#' | con | endif
-            if line == '' | con  | endif
-            if line =~ '^!' | con  | endif
-            if line =~ '/$' | let igstring .= "," . line . "*" | con | endif
-            let igstring .= "," . line
-        endfor
-        let execstring = "set wildignore=".substitute(igstring,'^,','',"g")
-        execute execstring
-        echo 'Wildignore defined from gitignore in: '.getcwd()
-    else
-        echo 'Unable to find gitignore'
-    endif
-endfunction
-nnoremap <LEADER>cti :call WildignoreFromGitignore()<cr>
-nnoremap <LEADER>cwi :set wildignore=''<cr>:echo 'Wildignore cleared'<cr>
-
-
-" Syntastic
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"let g:syntastic_auto_loc_list=1
-"let g:syntastic_loc_list_height=5
-
-" Insert a newline after each specified string (or before if use '!').
-" If no arguments, use previous search.
-command! -bang -nargs=* -range LineBreakAt <line1>,<line2>call LineBreakAt('<bang>', <f-args>)
-function! LineBreakAt(bang, ...) range
-  let save_search = @/
-  if empty(a:bang)
-    let before = ''
-    let after = '\ze.'
-    let repl = '&\r'
-  else
-    let before = '.\zs'
-    let after = ''
-    let repl = '\r&'
-  endif
-  let pat_list = map(deepcopy(a:000), "escape(v:val, '/\\.*$^~[')")
-  let find = empty(pat_list) ? @/ : join(pat_list, '\|')
-  let find = before . '\%(' . find . '\)' . after
-  " Example: 10,20s/\%(arg1\|arg2\|arg3\)\ze./&\r/ge
-  execute a:firstline . ',' . a:lastline . 's/'. find . '/' . repl . '/ge'
-  let @/ = save_search
-endfunction
-
 let g:fugitive_github_domains = ['github.com','github.etsycorp.com']
-
 
 " add any machine specific configs to .vimrc.local
 if filereadable(glob("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
 
-
+set path=~/development/Web/phplib/EtsyModel,~/development/Web/phplib,~/development/Web/templates
+set includeexpr=substitute(v:fname,'_','/','g').'.php'
+set suffixesadd=.tpl
